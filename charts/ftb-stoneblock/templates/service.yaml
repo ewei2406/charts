@@ -13,9 +13,11 @@ spec:
       protocol: TCP
       port: 25565  # The port that the service will expose
       targetPort: 25565  # The port on the container that the service will forward traffic to
+      nodePort: 25565  # The port on the node that will be exposed
     - name: udp-minecraft
       protocol: UDP
       port: 25565  # The same port exposed for UDP traffic
       targetPort: 25565  # The same port on the container
+      nodePort: 25565  # The port on the node that will be exposed
   selector:
     {{- include "ftb-stoneblock.selectorLabels" . | nindent 4 }}
