@@ -94,12 +94,12 @@ livenessProbe:
   tcpSocket:
     port: 25565 # Minecraft's default port
   initialDelaySeconds: 60 # Allow server to fully start before probing
-  periodSeconds: 10
+  periodSeconds: 60
 readinessProbe:
   tcpSocket:
     port: 25565 # Minecraft's default port
   initialDelaySeconds: 60 # Allow server to fully start before probing
-  periodSeconds: 20
+  periodSeconds: 60
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
