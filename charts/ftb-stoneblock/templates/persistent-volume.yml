@@ -2,12 +2,13 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: {{ include "ftb-stoneblock.fullname" . }}-world-pv
+  labels:
+    type: local
 spec:
+  storageClassName: manual
   capacity:
-    storage: 5Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: {{ .Values.pv.hostPath }}
-    type: Directory

@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ include "ftb-stoneblock.fullname" . }}-world-pvc
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
