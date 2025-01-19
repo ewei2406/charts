@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  ftb-stoneblock:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-01-19T22:55:23.723240784Z"
+    description: A Helm chart for Kubernetes
+    digest: 7f67067c79aa176e41d9f799216d20af77f8fcc60be42033032d227cdc1a808e
+    name: ftb-stoneblock
+    type: application
+    urls:
+    - https://github.com/ewei2406/charts/releases/download/ftb-stoneblock-0.1.0/ftb-stoneblock-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-01-19T22:55:23.723272424Z"
