@@ -9,10 +9,12 @@ spec:
   internalTrafficPolicy: Cluster
   type: {{ .Values.service.type }}
   ports:
-    - protocol: TCP
+    - name: tcp-minecraft
+      protocol: TCP
       port: 25565  # The port that the service will expose
       targetPort: 25565  # The port on the container that the service will forward traffic to
-    - protocol: UDP
+    - name: udp-minecraft
+      protocol: UDP
       port: 25565  # The same port exposed for UDP traffic
       targetPort: 25565  # The same port on the container
   selector:
