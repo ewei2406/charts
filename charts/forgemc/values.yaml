@@ -1,6 +1,6 @@
 image:
-  tag: "1.0"
-  
+  tag: "1.1"
+
 backups:
   hostPath: /Volumes/Data/forgemc/backups
   storage: 10Gi
