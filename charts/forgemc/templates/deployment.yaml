@@ -20,7 +20,7 @@ spec:
       initContainers:
         - name: init-world-and-mods
           image: busybox
-          command: ['sh', '-c', 'cp -r /host-world/* /app/world/ && cp -r /host-mods/* /app/mods/']
+          command: ['sh', '-c', 'rsync -av --ignore-existing /host-world/ /app/world/ && rsync -av --ignore-existing /host-mods/ /app/mods/']
           volumeMounts:
             - name: host-world
               mountPath: "/host-world"
