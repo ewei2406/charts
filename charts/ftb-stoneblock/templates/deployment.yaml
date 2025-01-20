@@ -3,17 +3,19 @@ kind: Deployment
 metadata:
   name: {{ include "ftb-stoneblock.fullname" . }}
   labels:
-    app.kubernetes.io/name: ftb-stoneblock
-    app: ftb-stoneblock
+    {{- include "ftb-stoneblock.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ftb-stoneblock
+      {{- include "ftb-stoneblock.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: ftb-stoneblock
+        {{- include "ftb-stoneblock.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     spec:
       volumes:
         - name: world-storage
@@ -24,6 +26,7 @@ spec:
           image: ghcr.io/ewei2406/ftb-stoneblock:1.1
           ports:
             - containerPort: 25565
+              hostPort: 30065
               name: "minecraft"
           volumeMounts:
             - mountPath: "/world"
