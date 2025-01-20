@@ -21,7 +21,7 @@ spec:
             claimName: {{ include "ftb-stoneblock.fullname" . }}-world-pvc
       containers:
         - name: ftb-stoneblock
-          image: ghcr.io/ewei2406/ftb-stoneblock:1.0
+          image: ghcr.io/ewei2406/ftb-stoneblock:1.1
           ports:
             - containerPort: 25565
               name: "minecraft"
