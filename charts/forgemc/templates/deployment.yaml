@@ -21,9 +21,24 @@ spec:
         - name: backups-storage
           persistentVolumeClaim:
             claimName: {{ include "forgemc.fullname" . }}-backups-pvc
+      initContainers:
+        - name: init-world-and-mods
+          image: busybox
+          command: ['sh', '-c', 'cp -r /host-world/* /app/world/ && cp -r /host-mods/* /app/mods/']
+          volumeMounts:
+            - name: host-world
+              mountPath: "/host-world"
+            - name: app-world
+              mountPath: "/app/world"
+            - name: host-mods
+              mountPath: "/host-mods"
+            - name: app-mods
+              mountPath: "/app/mods"
       containers:
         - name: forgemc
-          image: ghcr.io/ewei2406/forge-create:1.0
+          image: ghcr.io/ewei2406/forgemc:{{ .Values.image.tag }}
+          stdin: true
+          tty: true
           ports:
             - containerPort: 25565
               hostPort: 30065
@@ -31,3 +46,20 @@ spec:
           volumeMounts:
             - name: backups-storage
               mountPath: "/app/backups"
+            - name: app-world
+              mountPath: "/app/world"
+            - name: app-mods
+              mountPath: "/app/mods"
+      volumes:
+        - name: host-world
+          hostPath:
+            path: {{ .Values.world.hostPath }}
+            type: Directory
+        - name: app-world
+          emptyDir: {}
+        - name: host-mods
+          hostPath:
+            path: {{ .Values.mods.hostPath }}
+            type: Directory
+        - name: app-mods
+          emptyDir: {}
