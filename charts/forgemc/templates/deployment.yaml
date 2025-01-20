@@ -17,10 +17,6 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
-      volumes:
-        - name: backups-storage
-          persistentVolumeClaim:
-            claimName: {{ include "forgemc.fullname" . }}-backups-pvc
       initContainers:
         - name: init-world-and-mods
           image: busybox
@@ -51,6 +47,9 @@ spec:
             - name: app-mods
               mountPath: "/app/mods"
       volumes:
+        - name: backups-storage
+          persistentVolumeClaim:
+            claimName: {{ include "forgemc.fullname" . }}-backups-pvc
         - name: host-world
           hostPath:
             path: {{ .Values.world.hostPath }}
