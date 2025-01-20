@@ -23,7 +23,7 @@ spec:
             claimName: {{ include "forgemc.fullname" . }}-backups-pvc
       containers:
         - name: forgemc
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: ghcr.io/ewei2406/forge-create:1.0
           ports:
             - containerPort: 25565
               hostPort: 30065
