@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "forgemc.fullname" . }}
+  labels:
+    {{- include "forgemc.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "forgemc.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "forgemc.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      volumes:
+        - name: backups-storage
+          persistentVolumeClaim:
+            claimName: {{ include "forgemc.fullname" . }}-backups-pvc
+      containers:
+        - name: forgemc
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          ports:
+            - containerPort: 25565
+              hostPort: 30065
+              name: "minecraft"
+          volumeMounts:
+            - name: backups-storage
+              mountPath: "/app/backups"

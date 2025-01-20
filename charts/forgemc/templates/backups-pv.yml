@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: {{ include "ftb-stoneblock.fullname" . }}-backups-pv
+  name: {{ include "forgemc.fullname" . }}-backups-pv
   labels:
     type: local
 spec:
@@ -13,5 +13,5 @@ spec:
   hostPath:
     path: {{ .Values.backups.hostPath }}
   claimRef:
-    name: {{ include "ftb-stoneblock.fullname" . }}-backups-pvc
+    name: {{ include "forgemc.fullname" . }}-backups-pvc
     namespace: {{ .Release.Namespace }}

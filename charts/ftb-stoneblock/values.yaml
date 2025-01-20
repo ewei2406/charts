@@ -1,7 +1,7 @@
 world:
   hostPath: /Volumes/Data/stoneblock/world
-  storage: 5Gi
+  storage: 10Gi
 
 backups:
   hostPath: /Volumes/Data/stoneblock/backups
-  storage: 5Gi
+  storage: 10Gi
