@@ -20,7 +20,20 @@ spec:
       initContainers:
         - name: init-world-and-mods
           image: busybox
-          command: ['sh', '-c', 'rsync -av --ignore-existing /host-world/ /app/world/ && rsync -av --ignore-existing /host-mods/ /app/mods/']
+          command: ['sh', '-c', '
+            if [ "$(ls -A /host-world)" ]; then
+              cp -r /host-world/* /app/world/;
+              echo "Copied /host-world to /app/world";
+            else
+              echo "Source /host-world is empty, skipping copy.";
+            fi;
+            if [ "$(ls -A /host-mods)" ]; then
+              cp -r /host-mods/* /app/mods/;
+              echo "Copied /host-mods to /app/mods";
+            else
+              echo "Source /host-mods is empty, skipping copy.";
+            fi;
+          ']
           volumeMounts:
             - name: host-world
               mountPath: "/host-world"
