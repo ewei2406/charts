@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: {{ include "ftb-stoneblock.fullname" . }}
   labels:
+    app.kubernetes.io/name: ftb-stoneblock
     app: ftb-stoneblock
 spec:
   replicas: 1
