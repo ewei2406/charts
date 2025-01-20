@@ -32,7 +32,7 @@ spec:
               hostPort: 30065
               name: "minecraft"
           volumeMounts:
-            - mountPath: "/app/world"
-              name: world-storage
-            - mountPath: "/app/backups"
-              name: backups-storage
+            - name: world-storage
+              mountPath: "/app/world"
+            - name: backups-storage
+              mountPath: "/app/backups"

@@ -12,3 +12,6 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: {{ .Values.backups.hostPath }}
+  claimRef:
+    name: {{ include "ftb-stoneblock.fullname" . }}-backups-pvc
+    namespace: {{ .Release.Namespace }}

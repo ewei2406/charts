@@ -12,3 +12,6 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: {{ .Values.world.hostPath }}
+  claimRef:
+    name: {{ include "ftb-stoneblock.fullname" . }}-world-pvc
+    namespace: {{ .Release.Namespace }}

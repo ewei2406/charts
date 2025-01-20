@@ -2,6 +2,8 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ include "ftb-stoneblock.fullname" . }}-backups-pvc
+  labels:
+    {{- include "ftb-stoneblock.labels" . | nindent 4 }}
 spec:
   storageClassName: manual
   accessModes:
@@ -9,3 +11,4 @@ spec:
   resources:
     requests:
       storage: {{ .Values.backups.storage }}
+  volumeName: {{ include "ftb-stoneblock.fullname" . }}-backups-pv
