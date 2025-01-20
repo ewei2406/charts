@@ -1,5 +1,7 @@
-pv:
-  hostPath: /Volumes/Data/world
+world:
+  hostPath: /Volumes/Data/stoneblock/world
+  storage: 5Gi
 
-pvc:
+backups:
+  hostPath: /Volumes/Data/stoneblock/backups
   storage: 5Gi

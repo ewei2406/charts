@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ include "ftb-stoneblock.fullname" . }}-world-pvc
+  name: {{ include "ftb-stoneblock.fullname" . }}-backups-pvc
 spec:
   storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: {{ .Values.pvc.storage }}
+      storage: {{ .Values.backups.storage }}

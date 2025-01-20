@@ -21,6 +21,9 @@ spec:
         - name: world-storage
           persistentVolumeClaim:
             claimName: {{ include "ftb-stoneblock.fullname" . }}-world-pvc
+        - name: backups-storage
+          persistentVolumeClaim:
+            claimName: {{ include "ftb-stoneblock.fullname" . }}-backups-pvc
       containers:
         - name: ftb-stoneblock
           image: ghcr.io/ewei2406/ftb-stoneblock:1.1
@@ -29,5 +32,8 @@ spec:
               hostPort: 30065
               name: "minecraft"
           volumeMounts:
-            - mountPath: "/world"
+            - mountPath: "/app/world"
               name: world-storage
+          volumeMounts:
+            - mountPath: "/app/backups"
+              name: backups-storage
