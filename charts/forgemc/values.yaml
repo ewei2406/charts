@@ -3,5 +3,5 @@ backups:
   storage: 10Gi
 
 image:
-  repository: ghcr.io/ewei2406/forge-create
-  tag: 1.0
+  repository: "ghcr.io/ewei2406/forge-create"
+  tag: "1.0"
