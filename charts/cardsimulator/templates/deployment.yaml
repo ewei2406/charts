@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: cardsim
-          image: "ghcr.io/ewei2406/cardsim:latest"
+          image: ghcr.io/ewei2406/cardsim:{{ .Values.image.tag }}
           imagePullPolicy: Always
           ports:
             - name: http
