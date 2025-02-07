@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   forgemc:
   - apiVersion: v2
+    appVersion: 1.18.0
+    created: "2025-02-07T19:02:44.691637528Z"
+    description: A Helm chart for Kubernetes
+    digest: 046da06ebce0de04a6e974b4fd0e01b3b75e458f5adc7927addbc7d01311e3d3
+    name: forgemc
+    type: application
+    urls:
+    - https://github.com/ewei2406/charts/releases/download/forgemc-0.3.0/forgemc-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     appVersion: 1.17.0
     created: "2025-01-20T18:37:34.631737198Z"
     description: A Helm chart for Kubernetes
@@ -22,4 +32,4 @@ entries:
     urls:
     - https://github.com/ewei2406/charts/releases/download/ftb-stoneblock-0.1.0/ftb-stoneblock-0.1.0.tgz
     version: 0.1.0
-generated: "2025-01-20T18:37:34.631740083Z"
+generated: "2025-02-07T19:02:44.691650492Z"
