@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   cardsimulator:
   - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2025-02-07T20:08:24.048068162Z"
+    description: A Helm chart for Kubernetes
+    digest: f381f88ac169b8eba38c338a0f4da5ad09166e40c7caa9d70506541cd21e8cea
+    name: cardsimulator
+    type: application
+    urls:
+    - https://github.com/ewei2406/charts/releases/download/cardsimulator-0.3.0/cardsimulator-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2025-02-07T19:07:45.039190472Z"
     description: A Helm chart for Kubernetes
@@ -43,4 +53,4 @@ entries:
     urls:
     - https://github.com/ewei2406/charts/releases/download/ftb-stoneblock-0.1.0/ftb-stoneblock-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-07T19:07:45.039199088Z"
+generated: "2025-02-07T20:08:24.0480782Z"
