@@ -20,6 +20,9 @@ spec:
         - name: fastapi
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.envFileConfigMap.name }}
           ports:
             - name: http
               containerPort: {{ .Values.image.port }}

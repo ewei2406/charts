@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.envFileConfigMap.name }}
+data:
+  .env: |
+    {{ .Files.Get .Values.envFileConfigMap.file | indent 4 }}
