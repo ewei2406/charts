@@ -11,6 +11,8 @@ host:
 healthcheck:
   path: "/healthz"
 
-envFileConfigMap:
-  name: env-file
-  file: .env
+env:
+  - name: ENV_1
+    value: "hello world"
+  - name: ENV_2
+    value: "goodbye world"
