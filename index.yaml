@@ -24,6 +24,16 @@ entries:
   fastapi:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2025-02-21T19:11:02.208002186Z"
+    description: A Helm chart for Kubernetes
+    digest: d5e9c3d3ddd77567b934a3b687f62b9781360ae9d8c596ca0fd5222a9743ebd3
+    name: fastapi
+    type: application
+    urls:
+    - https://github.com/ewei2406/charts/releases/download/fastapi-0.2.0/fastapi-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2025-02-21T18:48:30.393221726Z"
     description: A Helm chart for Kubernetes
     digest: 4e1b5fb1b2b9dad41821e3a2553e1ea9a80119107c01d462164096c3d57b8ff9
@@ -64,4 +74,4 @@ entries:
     urls:
     - https://github.com/ewei2406/charts/releases/download/ftb-stoneblock-0.1.0/ftb-stoneblock-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-21T18:48:30.39323452Z"
+generated: "2025-02-21T19:11:02.208009389Z"
